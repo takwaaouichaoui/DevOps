@@ -17,8 +17,6 @@ public class StockServiceImpl implements IStockService {
 	@Autowired
 	StockRepository stockRepository;
 
-    public StockServiceImpl(StockRepository repository) {
-    }
 
 
     @Override
