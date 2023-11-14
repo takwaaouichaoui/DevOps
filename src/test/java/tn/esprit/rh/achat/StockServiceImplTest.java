@@ -2,10 +2,14 @@ package tn.esprit.rh.achat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
+import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.StockRepository;
 import tn.esprit.rh.achat.services.StockServiceImpl;
@@ -15,9 +19,11 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 public class StockServiceImplTest {
 
     @InjectMocks
@@ -26,9 +32,11 @@ public class StockServiceImplTest {
     @Mock
     private StockRepository stockRepository;
 
+    Stock existingStock;
+
     @BeforeEach
-    public void init() {
-        MockitoAnnotations.initMocks(this);
+    void setUp() {
+        existingStock = new Stock(1L, "ExistingStock", 100, 10);
     }
 
     @Test
@@ -71,9 +79,9 @@ public class StockServiceImplTest {
 
     @Test
     public void testDeleteStock() {
-        Stock existingStock = new Stock(1L, "ExistingStock", 100, 10);
 
-        Mockito.when(stockRepository.findById(1L)).thenReturn(Optional.of(existingStock));
+
+        Mockito.when(stockRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(existingStock));
         Mockito.doNothing().when(stockRepository).deleteById(1L);
 
         stockService.deleteStock(1L);
