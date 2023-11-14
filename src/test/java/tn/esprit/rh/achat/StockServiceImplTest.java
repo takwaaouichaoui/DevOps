@@ -80,8 +80,8 @@ public class StockServiceImplTest {
     @Test
     public void testDeleteStock() {
 
-
         Mockito.when(stockRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(existingStock));
+
         Mockito.doNothing().when(stockRepository).deleteById(1L);
 
         stockService.deleteStock(1L);
