@@ -21,12 +21,16 @@ services:
     volumes:
       - db_vol:/var/lib/mysqldb
 
-  departement_app:
-    networks:
-      - takwa_network
-    image: takwa
-    restart: on-failure
+  spring-boot-app:
+    image: takwaaouichaoui/devops
+    container_name: Takwaspring
     ports:
-      - "8089:8089"
+      - "8089:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
     depends_on:
       - mysqldb
+    networks:
+      - takwa_network
