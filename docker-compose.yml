@@ -4,7 +4,7 @@ volumes:
   db_vol:
 
 networks:
-  takwa_network:
+  yasmine_network:
     driver: bridge
 
 services:
