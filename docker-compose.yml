@@ -13,7 +13,7 @@ services:
       - takwa_network
     container_name: mysqldb
     image: mysql:5.7
-    restart: unless-stopped
+    restart: on-failure
     ports:
       - "3306:3306"
     environment:
