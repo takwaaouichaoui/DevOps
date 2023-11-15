@@ -73,13 +73,7 @@
 		</dependency>
 
 	</dependencies>
-	<distributionManagement>
-		<repository>
-			<id>deploymentRepo</id>
-			<name>Nexus Repository</name>
-			<url>http://192.168.33.10:8081/repository/maven-releases/</url>
-		</repository>
-	</distributionManagement>
+
 
 	<build>
 		<plugins>
@@ -130,5 +124,11 @@
 				</plugins>
 			</pluginManagement>
 	</build>
-
+	<distributionManagement>
+		<repository>
+			<id>deploymentRepo</id>
+			<name>admin</name>
+			<url>http://192.168.238.160:8081/repository/myreponexus/</url>
+		</repository>
+	</distributionManagement>
 </project>
