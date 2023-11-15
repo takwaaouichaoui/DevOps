@@ -1,3 +1,5 @@
+package tn.esprit.rh.achat;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -19,7 +21,7 @@ import tn.esprit.rh.achat.services.ReglementServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class ReglementServiceImplTest {
+class ReglementServiceImplTest {
 
     @InjectMocks
     private ReglementServiceImpl reglementService;
