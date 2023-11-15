@@ -124,11 +124,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>deploymentRepo</id>
-			<name>admin</name>
-			<url>http://192.168.33.10:8081/repository/myreponexus/</url>
-		</repository>
-	</distributionManagement>
 </project>
