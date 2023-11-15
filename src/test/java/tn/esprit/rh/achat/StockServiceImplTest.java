@@ -42,8 +42,8 @@ public class StockServiceImplTest {
     @Test
     public void testRetrieveAllStocks() {
         List<Stock> mockStocks = new ArrayList<>();
-        mockStocks.add(new Stock(1L, "Stock1", 100, 10));
-        mockStocks.add(new Stock(2L, "Stock2", 200, 20));
+        mockStocks.add(new Stock(1L, "Stock1", 1000, 10));
+        mockStocks.add(new Stock(2L, "Stock2", 2000, 20));
 
         Mockito.when(stockRepository.findAll()).thenReturn(mockStocks);
         List<Stock> retrievedStocks = stockService.retrieveAllStocks();
