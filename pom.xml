@@ -128,7 +128,7 @@
 		<repository>
 			<id>deploymentRepo</id>
 			<name>admin</name>
-			<url>http://172.17.2.94/:8081/repository/myreponexus/</url>
+			<url>http://172.17.2.94:8081/repository/myreponexus/</url>
 		</repository>
 	</distributionManagement>
 </project>
